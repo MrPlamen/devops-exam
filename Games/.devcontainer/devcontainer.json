@@ -1,0 +1,20 @@
+{
+    "name": "Docker Development Container",
+    "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu", 
+    "features": {
+      "ghcr.io/devcontainers/features/docker-in-docker:1": {
+        "version": "latest"
+      }
+    },
+    "postCreateCommand": "docker --version",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-azuretools.vscode-docker"
+        ]
+      }
+    },
+    "mounts": [
+      "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ]
+  }
